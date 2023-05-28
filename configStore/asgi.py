@@ -1,5 +1,5 @@
 """
-ASGI config for webPage project.
+ASGI config for configStore project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'webPage.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'configStore.settings')
 
 application = get_asgi_application()
