@@ -2,7 +2,7 @@ class storeCart:
     def __init__(self, request):
         self.request = request
         self.session = request.session
-        cart = self.session["cart"]
+        cart = self.session.get("cart")
         if not cart:
             self.session["cart"] = {}
             self.cart = self.session["cart"]
@@ -15,15 +15,15 @@ class storeCart:
             self.cart[id]={
                 "producto_id": producto.id,
                 "nombre": producto.nombre,
-                "precio_total   ": producto.precio,
-                "cantidad": 1
+                "precio_total": producto.precio,
+                "cantidad": 1,
             }
         else:
             self.cart[id]["cantidad"] += 1
             self.cart[id]["precio_total"] += producto.precio
         self.save_cart()
 
-    def guardar_cart(self):
+    def save_cart(self):
         self.session["cart"] = self.cart
         self.session.modified = True
 

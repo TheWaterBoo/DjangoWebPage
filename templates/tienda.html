@@ -19,13 +19,24 @@
                     <div class="row" style="padding: 10px 0;">
                         <div class="col-12">
                             <div class="row">
-                                productos
+                                {% for producto in productos %}
+                                <div class="col-6">
+                                    <div class="card" style="height: 10rem; width: 23rem; margin: 5px 0px;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ producto.nombre }}</h5>
+                                            <p class="card-text"> {{ producto.categoria }} </p>
+                                            <p class="card-text">{{ producto.precio }}</p>
+                                            <a href="{% url 'Add' producto.id %}" class="btn btn-primary">Agregar al carrito</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-4">
-                    carrito
+                    {% include "carrito.html" %}
                 </div>
             </div>
         </div>
