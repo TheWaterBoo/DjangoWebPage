@@ -11,14 +11,14 @@
         </tr>
     </thead>
     <tbody>
-        {% if request.session.carrito.items %}
-        {% for key, value in request.session.carrito.items %}
+        {% if request.session.cart.items %}
+        {% for key, value in request.session.cart.items %}
         <tr>
             <td> {{value.nombre}} </td>
-            <td> {{value.precio}} </td>
-            <td> {{value.precio}} 
-                <a href="{% url 'Add' value.producto.id %}" class="badge btn btn-dark badge-dark">+</a>
-                <a href="{% url 'Sub' value.producto.id %}" class="badge btn btn-dark badge-dark">-</a>
+            <td> {{value.precio_total}} </td>
+            <td> {{value.producto_id}} 
+                <a href="{% url 'Sub' value.producto_id %}" class="badge btn btn-dark badge-dark">-</a>
+                <a href="{% url 'Add' value.producto_id %}" class="badge btn btn-dark badge-dark">+</a>
             </td>
         </tr>
         {% endfor %}
@@ -31,7 +31,7 @@
         {% endif %}
         <tr>
             <th scope="row">Total:</th>
-            <td colspan="2">$ {{total_carrito}}</td>
+            <td colspan="2">$ {{coste_total}}</td>
         </tr>
     </tbody>
 </table>
