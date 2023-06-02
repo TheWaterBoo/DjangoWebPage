@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    command: python /GitHub/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/online-shop-django
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    networks:
+      - online-shop-network
+
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+    networks:
+      - online-shop-network
+
+networks:
+  online-shop-network:
+
+volumes:
+  postgres_data:
