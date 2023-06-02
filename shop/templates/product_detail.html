@@ -8,14 +8,14 @@
     <div class="col-md-5 p-3 border rounded">
         <!-- category -->
         <div class="border-bottom mb-2 pb-2">
-            <span class="text-muted ">Categorias:</span><a class="text-decoration-none text-dark" href="{% url 'shop:filter_by_category' product.category.slug %}"> {{product.category}}</a>
+            <span class="text-black text-center">Categorias:</span><a class="text-decoration-none link-info" href="{% url 'shop:filter_by_category' product.category.slug %}"> {{product.category}}</a>
         </div>
         <!-- title -->
-        <h2>{{ product.title }}</h2>
+        <center><h2 class="text-black text-center">{{ product.title }}</h2></center>
         <!-- price -->
-        <h4 class="mt-4 text-dark">Precio: ${{ product.price }}</h4>
+        <center><h4 class="mt-4 text-white text-center">Precio: ${{ product.price }}</h4></center>
         <!-- description -->
-        <div class="mt-4 pe-3 mb-5">{{ product.description }}</div>
+        <center><div class="mt-4 pe-3 mb-5 text-center text-white">{{ product.description }}</div></center>
         <!-- cart btn -->
         <form method="post" action="{% url 'cart:add_to_cart' product.id %}">
             {% csrf_token %}
@@ -36,15 +36,15 @@
 </div>
 <!-- related products -->
 <div class="row mt-4 mb-4">
-    <h3>Productos relacionados: </h3><hr>
+    <h3 class="text-white">Productos similares: </h3><hr>
     {% for p in related_products %}
         <!-- dont show the current product in this page -->
         {% if p != product %}
-            <div class="card me-2 mb-2" style="width: 16rem;">
+            <div class="card me-2 mb-2" style="width: 16rem; background-color: #292d36;">
                 <img style="object-fit: cover;" class="card-img mt-2" width="268" height="200" src="{{ p.image.url }}">
                 <div class="mt-3 text-center">
-                <h5 class="card-title">{{ p.title }}</h5>
-                <p class="text-muted">Precio: ${{ p.price }}</p>
+                <h5 class="card-title text-white">{{ p.title }}</h5>
+                <p class="text-black">Precio: ${{ p.price }}</p>
                 <a href="{{ p.get_absolute_url }}" class="mb-3 btn btn-outline-primary w-100">Comprar ahora!</a>
                 </div>
             </div>
