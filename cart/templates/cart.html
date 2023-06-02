@@ -3,6 +3,9 @@
 {% block content %}
 <div class="col-md-2"></div>
 {% if cart_count != 0 %}
+<h2 class="text-center">Resumen de compra 💸</h2>
+  <hr>
+<div class="col-md-2"></div>
 <div class="col-md-8 border rounded p-3">
 <table class="table table-striped ">
     <thead class="text-white">
@@ -23,7 +26,7 @@
         <td>${{ item.price }}</td>
         <center><td>{{ item.quantity }}</td></center>
         <td>${{ item.total_price }}</td>
-        <td><a class="text-danger text-decoration-none" href="{% url 'cart:remove_from_cart' item.product.id %}">Eliminar del carrito</a></td>
+        <td><a class="text-danger text-decoration-none" href="{% url 'cart:remove_from_cart' item.product.id %}">Eliminar del carrito 🗑</a></td>
       </tr>
     </tbody>
     {% endfor %}

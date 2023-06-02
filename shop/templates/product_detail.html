@@ -20,7 +20,8 @@
         <form method="post" action="{% url 'cart:add_to_cart' product.id %}">
             {% csrf_token %}
             {{ form }}
-            <input type="submit" class="btn btn-primary mt-4" value="Add to cart">
+            <br>
+            <input type="submit" class="btn btn-primary mt-4" value="Agregar al carrito 🛒">
         </form>
         <br>
         {% if favorites == 'remove' %}
