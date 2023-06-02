@@ -5,7 +5,7 @@ services:
     build: .
     command: python /GitHub/manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/online-shop-django
+      - .:/DjangoWebPage
     ports:
       - 8000:8000
     depends_on:

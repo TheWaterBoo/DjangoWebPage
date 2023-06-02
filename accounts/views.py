@@ -7,16 +7,13 @@ from accounts.models import User
 
 
 def create_manager():
-    """
-    to execute once on startup:
-    this function will call in online_shop/urls.py
-    """
-    if not User.objects.filter(email="manager@example.com").first():
+    if not User.objects.filter(email="admin@correo.com").first():
         user = User.objects.create_user(
-            "manager@example.com", 'shop manager' ,'managerpass1234'
+            "admin@correo.com", 'Administrador' ,'admin1964'
         )
-        # give this user manager role
+        # le damos permisos de administrador y gerente
         user.is_manager = True
+        user.is_admin = True
         user.save()
 
 
