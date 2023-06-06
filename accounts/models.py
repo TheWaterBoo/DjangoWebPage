@@ -11,7 +11,7 @@ class User(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     likes = models.ManyToManyField(Product, blank=True, related_name='likes')
-    # set a manager role for shop manager to access orders and products
+
     is_manager = models.BooleanField(default=False)
 
     objects = UserManager()

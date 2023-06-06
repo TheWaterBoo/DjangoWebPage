@@ -1,24 +1,25 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="col-md-6">
+    <div class="col-md-6 text-center mx-auto">
         <form method="POST">
             {% csrf_token %}
-            <h3>Login</h3>
+            <h1 class="mb-4 text-black fw-bold">Iniciar Sesion</h1>
             <hr>
             {{ form|crispy }}
+            <br>
             <div class="form-group">
-                <button class="btn btn-primary mt-3 w-100" type="submit">Submit</button>
+                <button class="btn btn-primary mt-3 w-100" type="submit">Inicar sesion</button>
             </div>
             <div class="mt-2 mb-2">
                 <small class="">
-                    <a class="text-decoration-none text-danger" href="{% url 'accounts:password_reset' %}">Forgot Password?</a>
+                    <a class="text-decoration-none text-danger" href="{% url 'accounts:password_reset' %}">Olvidaste tu contraseña?</a>
                 </small>
             </div>
         </form>
         <div class="border-top pt-3">
-            <small class="text-muted">
-                New Here? <a class="text-decoration-none" href="{% url 'accounts:user_register' %}">Create account</a>
+            <small class="text-black">
+                No tienes una cuenta? <a href="{% url 'accounts:user_register' %}">Registrate!</a>
             </small>
         </div>
     </div>

@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.views import PasswordResetConfirmView
 
-from .forms import UserRegistrationForm, UserLoginForm, ManagerLoginForm, EditProfileForm
+from .forms import UserRegistrationForm, UserLoginForm, ManagerLoginForm, EditProfileForm, CustomSetPasswordForm
 from accounts.models import User
 
 
@@ -30,7 +31,7 @@ def manager_login(request):
                 return redirect('dashboard:products')
             else:
                 messages.error(
-                    request, 'username or password is wrong', 'danger'
+                    request, 'Usuario o contraseña incorrectos!', 'danger'
                 )
                 return redirect('accounts:manager_login')
     else:
@@ -53,6 +54,10 @@ def user_register(request):
     context = {'title':'Signup', 'form':form}
     return render(request, 'register.html', context)
 
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    form_class = CustomSetPasswordForm
+    template_name = 'password_reset_confirm.html'  # La plantilla para mostrar el formulario de cambio de contraseña
+
 
 def user_login(request):
     if request.method == 'POST':
@@ -67,7 +72,7 @@ def user_login(request):
                 return redirect('shop:home_page')
             else:
                 messages.error(
-                    request, 'username or password is wrong', 'danger'
+                    request, 'Usuario o contraseña incorrectos!', 'danger'
                 )
                 return redirect('accounts:user_login')
     else:
@@ -85,7 +90,7 @@ def edit_profile(request):
     form = EditProfileForm(request.POST, instance=request.user)
     if form.is_valid():
         form.save()
-        messages.success(request, 'Your profile has been updated', 'success')
+        messages.success(request, 'Tu perfil ha sido actualizado!', 'success')
         return redirect('accounts:edit_profile')
     else:
         form = EditProfileForm(instance=request.user)

@@ -4,9 +4,9 @@ from django.contrib.auth.models import BaseUserManager
 class UserManager(BaseUserManager):
     def create_user(self, email, full_name, password):
         if not email:
-            raise ValueError('Email is required!')
+            raise ValueError('Correo electronico es obligatorio!')
         if not full_name:
-            raise ValueError('full name is required!')
+            raise ValueError('Nombre completo es obligatorio!')
 
         user = self.model(email=self.normalize_email(email), full_name=full_name)
         user.set_password(password)

@@ -6,7 +6,6 @@ from django.core.paginator import Paginator
 from shop.models import Product, Category
 from cart.forms import QuantityForm
 
-
 def paginat(request, list_objects):
 	p = Paginator(list_objects, 20)
 	page_number = request.GET.get('page')
@@ -24,7 +23,7 @@ def home_page(request):
 	context = {'products': paginat(request ,products)}
 	return render(request, 'home_page.html', context)
 
-
+@login_required
 def product_detail(request, slug):
 	form = QuantityForm()
 	product = get_object_or_404(Product, slug=slug)
@@ -61,7 +60,6 @@ def favorites(request):
 	context = {'title':'Favorites', 'products':products}
 	return render(request, 'favorites.html', context)
 
-
 def search(request):
 	query = request.GET.get('q')
 	products = Product.objects.filter(title__icontains=query).all()
@@ -70,17 +68,15 @@ def search(request):
 
 
 def filter_by_category(request, slug):
-	"""when user clicks on parent category
-	we want to show all products in its sub-categories too
-	"""
+	#El usuario da clic en las categorias y se desplegan las categorias con subcategorias
 	result = []
 	category = Category.objects.filter(slug=slug).first()
 	[result.append(product) \
 		for product in Product.objects.filter(category=category.id).all()]
-	# check if category is parent then get all sub-categories
+	# se comprueba si la categoria es padre de las subcategorias
 	if not category.is_sub:
 		sub_categories = category.sub_categories.all()
-		# get all sub-categories products 
+		# se obtienen las subcategorias de todas las categorias
 		for category in sub_categories:
 			[result.append(product) \
 				for product in Product.objects.filter(category=category).all()]
