@@ -23,7 +23,7 @@ def is_manager(user):
 @login_required
 def products(request):
     products = Product.objects.all()
-    context = {'title':'Products' ,'products':products}
+    context = {'title':'Productos' ,'products':products}
     return render(request, 'products.html', context)
 
 
@@ -34,11 +34,11 @@ def add_product(request):
         form = AddProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Product added Successfuly!')
+            messages.success(request, 'Producto agregado con exito!')
             return redirect('dashboard:add_product')
     else:
         form = AddProductForm()
-    context = {'title':'Add Product', 'form':form}
+    context = {'title':'Agregar producto', 'form':form}
     return render(request, 'add_product.html', context)
 
 
@@ -46,7 +46,7 @@ def add_product(request):
 @login_required
 def delete_product(request, id):
     product = Product.objects.filter(id=id).delete()
-    messages.success(request, 'product has been deleted!', 'success')
+    messages.success(request, 'El producto fue eliminado!', 'success')
     return redirect('dashboard:products')
 
 
@@ -58,11 +58,11 @@ def edit_product(request, id):
         form = EditProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Product has been updated', 'success')
+            messages.success(request, 'Se han actualizado los detalles', 'success')
             return redirect('dashboard:products')
     else:
         form = EditProductForm(instance=product)
-    context = {'title': 'Edit Product', 'form':form}
+    context = {'title': 'Editar producto', 'form':form}
     return render(request, 'edit_product.html', context)
 
 
@@ -73,11 +73,11 @@ def add_category(request):
         form = AddCategoryForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Category added Successfuly!')
+            messages.success(request, 'La categoria ha sido añadida')
             return redirect('dashboard:add_category')
     else:
         form = AddCategoryForm()
-    context = {'title':'Add Category', 'form':form}
+    context = {'title':'Agregar categoria', 'form':form}
     return render(request, 'add_category.html', context)
 
 
@@ -85,7 +85,7 @@ def add_category(request):
 @login_required
 def orders(request):
     orders = Order.objects.all()
-    context = {'title':'Orders', 'orders':orders}
+    context = {'title':'Pedidos procesados', 'orders':orders}
     return render(request, 'orders.html', context)
 
 
@@ -94,5 +94,5 @@ def orders(request):
 def order_detail(request, id):
     order = Order.objects.filter(id=id).first()
     items = OrderItem.objects.filter(order=order).all()
-    context = {'title':'order detail', 'items':items, 'order':order}
+    context = {'title':'Detalles del pedido', 'items':items, 'order':order}
     return render(request, 'order_detail.html', context)

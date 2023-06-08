@@ -6,12 +6,12 @@
 <center><h2>Mis compras 🛍</h2></center>
 <hr>
 {% for order in orders %}
-<div class="col-md-7 mb-4 border rounded p-3">
+<div class="col-md-7 mb-4 border rounded p-3 mx-auto">
 <!-- order id on right -->
 <b style="float: right;">Orden No.: {{ order.id }}</b>
 <!-- order payment status -->
 {% if order.status %}
-    <h4><b class="text-success">Entregado</b></h4>
+    <h4><b class="text-success ">Entregado</b></h4>
 {% else %}
     <h3><b class="text-danger">Cancelado</b></h3>
 {% endif %}
@@ -19,7 +19,7 @@
 {% for item in order.items.all  %}
     <div class="border-bottom p-2">
         <p>Producto: <a class="text-decoration-none" href="{{ item.product.get_absolute_url }}">{{item.product.title}}</a></p>
-        <p>Precio c/u: ${{item.price}}</p>
+        <p class="fw-bold">Precio c/u: ${{item.price}}</p>
         <p>Cantidad: {{item.quantity}}</p>
     </div>
 {% endfor %}
@@ -31,8 +31,8 @@
     <div class="col-md-2"></div>
     <div class="col-md-8 mt-5 pt-5 text-center">
       <br>
-      <h3 class="text-muted text-capitalize">Aun no tienes compras hechas!</h3>
-      <a href="/" class="text-primary text-decoration-none">Volver a la tienda</a>
+      <h2 class="text-white text-capitalize">Aun no tienes compras hechas!</h2>
+      <a href="/" class="text-primary text-decoration-none fw-bold">Volver a la tienda</a>
     </div>
     <div class="col-md-2"></div>
 </div>

@@ -1,13 +1,13 @@
 {% extends "dashboard.html" %}
 {% block content %}
 <table class="table">
-    <thead class="thead-dark">
+    <thead class="text-white">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">User</th>
+        <th scope="col">No.</th>
+        <th scope="col">Usuario</th>
         <th scope="col">Id</th>
-        <th scope="col">total price</th>
-        <th scope="col">status</th>
+        <th scope="col">Precio total</th>
+        <th scope="col">Status</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -19,11 +19,11 @@
         <td>{{ order.id }}</td>
         <td>${{ order.get_total_price }}</td>
         {% if order.status %}
-            <td class="text-success">Successful</td>
+            <td class="text-success">Entregado</td>
         {% else %}
-            <td class="text-danger">Canceled</td>
+            <td class="text-danger">Cancelado</td>
         {% endif %}
-        <td><a href="{% url 'dashboard:order_detail' order.id %}" class="text-primary text-decoration-none">Detail</a></td>
+        <td><a href="{% url 'dashboard:order_detail' order.id %}" class="text-primary text-decoration-none">Detalles</a></td>
       </tr>
     </tbody>
     {% endfor %}

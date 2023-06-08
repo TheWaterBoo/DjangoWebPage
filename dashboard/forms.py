@@ -8,6 +8,13 @@ class AddProductForm(ModelForm):
     class Meta:
         model = Product
         fields = ['category', 'image', 'title','description', 'price']
+        labels = {
+            'category': 'Elige una categoria o subcategoria:',
+            'image': 'Imagen:',
+            'title': 'Nombre producto:',
+            'description': 'Descripcion del producto:',
+            'price': 'Precio:'
+        }
 
     def __init__(self, *args, **kwargs):
         super(AddProductForm, self).__init__(*args, **kwargs)
@@ -19,7 +26,11 @@ class AddCategoryForm(ModelForm):
     class Meta:
         model = Category
         fields = ['title', 'sub_category', 'is_sub']
-    
+        labels = {
+            'title': 'Nombre categoria',
+            'sub_category': 'Subcategoría de...',
+            'is_sub': '¿Es subcategoría?'
+        }
 
     def __init__(self, *args, **kwargs):
         super(AddCategoryForm, self).__init__(*args, **kwargs)
@@ -32,6 +43,13 @@ class EditProductForm(ModelForm):
     class Meta:
         model = Product
         fields = ['category', 'image', 'title','description', 'price']
+        labels = {
+            'category': 'Elige una categoria o subcategoria:',
+            'image': 'Imagen:',
+            'title': 'Nombre producto:',
+            'description': 'Descripcion del producto:',
+            'price': 'Precio:'
+        }
 
     def __init__(self, *args, **kwargs):
         super(EditProductForm, self).__init__(*args, **kwargs)

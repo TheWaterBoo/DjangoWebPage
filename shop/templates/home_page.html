@@ -17,13 +17,13 @@
   <div class="col-md-2">
     <ul class="pagination">
       {% if products.has_previous %}
-      <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}">Anterior</a></li>
-      <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}">{{products.previous_page_number}}</a></li>
+      <li class="page-item"><a class="page-link" style="background-color: #5e5e5e;" href="?page={{ products.previous_page_number }}">Anterior</a></li>
+      <li class="page-item"><a class="page-link" style="background-color: #5e5e5e;" href="?page={{ products.previous_page_number }}">{{products.previous_page_number}}</a></li>
       {% endif %}
-      <li class="page-item"><a class="page-link" href="?page={{ products.number }}">{{products.number}}</a></li>
+      <li class="page-item"><a class="page-link" style="background-color: #5e5e5e;" href="?page={{ products.number }}">{{products.number}}</a></li>
       {% if products.has_next %}
-      <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}">{{products.next_page_number}}</a></li>
-      <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}">Siguiente</a></li>
+      <li class="page-item"><a class="page-link" style="background-color: #5e5e5e;" href="?page={{ products.next_page_number }}">{{products.next_page_number}}</a></li>
+      <li class="page-item"><a class="page-link" style="background-color: #5e5e5e;" href="?page={{ products.next_page_number }}">Siguiente</a></li>
       {% endif %}
     </ul>
   </div>

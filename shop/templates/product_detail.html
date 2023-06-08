@@ -30,16 +30,14 @@
         <a href="{% url 'shop:add_to_favorites' product.id %}" class="btn btn-outline-success mt-5 text-capitalize ">Agregar a tus favoritos ❤</a>
         {% endif %}
     </div>
-    <!-- product image -->
     <div class="col-md-6">
         <img style="object-fit: cover;" class="rounded shadow" src="{{ product.image.url }}" width="510" height="500">
     </div>
 </div>
-<!-- related products -->
+
 <div class="row mt-4 mb-4">
     <h3 class="mb-4 text-white fw-bold text-center">Productos similares: </h3><hr>
     {% for p in related_products %}
-        <!-- dont show the current product in this page -->
         {% if p != product %}
             <div class="card me-2 mb-2 shadow" style="width: 16rem; background-color: #5e5e5e;">
                 <img style="object-fit: cover;" class="card-img mt-2" width="268" height="200" src="{{ p.image.url }}">

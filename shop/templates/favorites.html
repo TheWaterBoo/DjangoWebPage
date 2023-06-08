@@ -4,7 +4,7 @@
 <center><h2>Favoritos ❤</h2></center>
 <hr>
 {% for product in products %}
-<div class="card me-2 mb-2" style="width: 16rem; background-color: #292d36;">
+<div class="card me-2 mb-2" style="width: 16rem; background-color: #5e5e5e;">
   <img style="object-fit: cover;" class="card-img mt-2" width="268" height="200" src="{{ product.image.url }}">
   <div class="mt-3 text-center">
     <h5 class="card-title" style="color: white;">{{ product.title }}</h5>
@@ -20,7 +20,7 @@
   <div class="col-md-8 mt-5 pt-5 text-center">
     <br>
     <h3 class="text-white text-capitalize fw-bold">Tu lista de favoritos esta vacia!</h3>
-    <a href="/" class="text-primary text-decoration-none">Volver a la tienda</a>
+    <a href="/" class="text-primary text-decoration-none fw-bold">Volver a la tienda</a>
   </div>
   <div class="col-md-2"></div>
 </div>

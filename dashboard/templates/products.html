@@ -3,13 +3,13 @@
 {% block content %}
 
 <table class="table table-striped ">
-    <thead class="text-muted">
+    <thead class="text-white">
         <tr>
-            <th scope="col">n</th>
-            <th scope="col">title</th>
-            <th scope="col">price</th>
-            <th scope="col">category</th>
-            <th scope="col">date</th>
+            <th scope="col">No.</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Fecha</th>
             <th scope="col"></th>
             <th scope="col"></th>
         </tr>
@@ -22,8 +22,8 @@
         <td>${{ product.price }}</td>
         <td>{{ product.category }}</td>
         <td>{{ product.date_created|date:"M d" }}</td>
-        <td><a class="text-danger text-decoration-none" href="{% url 'dashboard:delete_product' product.id %}">Delete</a></td>
-        <td><a class="text-info text-decoration-none" href="{% url 'dashboard:edit_product' product.id %}">Edit</a></td>
+        <td><a class="text-danger text-decoration-none" href="{% url 'dashboard:delete_product' product.id %}">Eliminar</a></td>
+        <td><a class="text-info text-decoration-none" href="{% url 'dashboard:edit_product' product.id %}">Editar</a></td>
       </tr>
     </tbody>
     {% endfor %}
