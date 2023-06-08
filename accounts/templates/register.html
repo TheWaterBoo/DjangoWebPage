@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="col-md-6">
+    <div class="col-md-6 text-center mx-auto">
         <form method="POST">
             {% csrf_token %}
-            <h3>Create Account</h3>
+            <h1 class="mb-4 text-black fw-bold">Crear una cuenta</h1>
             <hr>
             {{ form|crispy }}
+            <br>
             <div class="form-group">
-                <button class="btn btn-primary w-100 mt-2" type="submit">Submit</button>
+                <button class="btn btn-primary w-100 mt-2" type="submit">Registrar</button>
             </div>
         </form>
         <div class="mt-3">
-            <small class="text-muted">
-                Already have an account? <a href="{% url 'accounts:user_login' %}">Login</a>
+            <small class="text-black">
+                ¿Ya estas registrado? <a class="text-decoration-none fw-bold" href="{% url 'accounts:user_login' %}">Inicia Sesion</a>
             </small>
         </div>
     </div>

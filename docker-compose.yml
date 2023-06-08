@@ -3,7 +3,7 @@ version: "3.9"
 services:
   web:
     build: .
-    command: python /GitHub/manage.py runserver 0.0.0.0:8000
+    command: bash -c "python /GitHub/manage.py migrate && python /GitHub/manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/DjangoWebPage
     ports:
