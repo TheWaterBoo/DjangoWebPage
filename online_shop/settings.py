@@ -137,5 +137,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_SSL = False
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'alu.19130541@correo.itlalaguna.edu.mx'
-EMAIL_HOST_PASSWORD = 'SuperScope'
+EMAIL_HOST_USER = '' #Inserta tu correo de gmail
+EMAIL_HOST_PASSWORD = '' #Inserta tu contraseña de tu correo
